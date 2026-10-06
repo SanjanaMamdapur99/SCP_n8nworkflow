@@ -1,6 +1,6 @@
 # ACME Smart Shuttle: n8n AIoT sourcing workflow
 
-The plan follows the [Digital Playbook's AIoT sourcing process](https://www.digitalplaybook.org/index.php?title=Sourcing_and_Procurement) and its fictional ACME Smart Shuttle example.
+The plan follows the [Digital Playbook&#39;s AIoT sourcing process](https://www.digitalplaybook.org/index.php?title=Sourcing_and_Procurement) and its fictional ACME Smart Shuttle example.
 
 ## Use-case summary
 
@@ -90,6 +90,10 @@ Use only fictional data and a reviewer email controlled by the student or instru
 
 ## 2. Create the architecture Data Table
 
+![1791293834788](image/README/1791293834788.png)
+
+![1791293908247](image/README/1791293908247.png)
+
 In the project **Overview**, open **Data Tables** and create `ACME Architecture Components`. Add two **String/Text** columns named exactly `component` and `role`. Add these 12 rows:
 
 | component                        | role                                                             |
@@ -106,6 +110,8 @@ In the project **Overview**, open **Data Tables** and create `ACME Architecture 
 | Integration services             | Connects apps, vehicles, schools, and operations                 |
 | Security and validation          | Security assessment, testing, and compliance evidence            |
 | Operations and support           | Monitoring, incident response, maintenance, and model retraining |
+
+![1791294272897](image/README/1791294272897.png)
 
 ## 3. Create the vendor Data Table
 
@@ -192,6 +198,8 @@ Enter the following three rows. The wording intentionally creates different stre
 | `risks_and_exclusions`      | Misses the nine-month pilot deadline; routing evidence, subcontractor, production price, and ownership are unresolved.                            |
 
 Confirm that the table contains **three rows**, with numeric month values.
+
+![1791294987584](image/README/1791294987584.png)
 
 ## 4. Build the intake form
 
@@ -670,7 +678,11 @@ Before sending, preview the message and confirm that it displays:
 
 The Gmail node sends a review pack. The reviewer replies outside the workflow. This is an intentionally simple human-in-the-loop endpoint for the classroom demonstration.
 
+![1791323532056](image/README/1791323532056.png)
+
 ## 18. Complete end-to-end test
+
+![1791323096117](image/README/1791323096117.png)
 
 Run from the Form Trigger's **Test URL** with the sample brief. Inspect these checkpoints in order:
 
@@ -693,20 +705,20 @@ Do not publish until this end-to-end test succeeds. Save the workflow frequently
 
 ## 19. Common fixes
 
-| Symptom                                     | Fix                                                                                                |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `undefined` in a prompt preview           | Inspect the named node's output. Confirm the exact field and whether it is nested under`output`. |
-| Item-linking error with`.item`            | Use`.first()` for the one-item brief, architecture list, strategy, BOM, and RFP nodes.           |
-| Strategy parser rejects output              | Keep the four-field-per-component schema. Use a separate formatter chain if needed.                |
-| BOM specialist repeatedly calls Think Tool  | Use the BOM Basic LLM Chain in this guide and remove the Think Tool.                                |
-| BOM contains invented staff counts or dates | Require a sizing basis and record unknowns as questions.                                           |
-| RFP weights differ from 100                 | Use the fixed seven weights from this guide and rerun the RFP Chain.                               |
-| Vendor evaluator reaches Max Iterations     | Remove Calculator/Think tools; use the documented Basic LLM Chain fallback if necessary.           |
-| Vendor ranking is`NaN`                    | Check whether scores are under`$json.output`, and confirm all seven are numeric.                 |
-| Sort says field `58`, `61`, or similar is missing | Enter plain text `weighted_total` as the Sort field; do not use an expression returning the score. |
-| Sort cannot find `weighted_total`           | Connect `Calculate Weighted Score` directly to `Rank Vendors` and keep other input fields enabled. |
-| Priority package displays `[object Object]` | Map its individual properties in the HTML or use `JSON.stringify(...)` for a plain-text email.     |
-| Ranked-vendor section is blank              | Gmail must follow `Collect Ranked Vendors`; map `$json.ranked_vendors` from that input.             |
+| Symptom                                              | Fix                                                                                                   |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `undefined` in a prompt preview                    | Inspect the named node's output. Confirm the exact field and whether it is nested under`output`.    |
+| Item-linking error with`.item`                     | Use`.first()` for the one-item brief, architecture list, strategy, BOM, and RFP nodes.              |
+| Strategy parser rejects output                       | Keep the four-field-per-component schema. Use a separate formatter chain if needed.                   |
+| BOM specialist repeatedly calls Think Tool           | Use the BOM Basic LLM Chain in this guide and remove the Think Tool.                                  |
+| BOM contains invented staff counts or dates          | Require a sizing basis and record unknowns as questions.                                              |
+| RFP weights differ from 100                          | Use the fixed seven weights from this guide and rerun the RFP Chain.                                  |
+| Vendor evaluator reaches Max Iterations              | Remove Calculator/Think tools; use the documented Basic LLM Chain fallback if necessary.              |
+| Vendor ranking is`NaN`                             | Check whether scores are under`$json.output`, and confirm all seven are numeric.                    |
+| Sort says field`58`, `61`, or similar is missing | Enter plain text`weighted_total` as the Sort field; do not use an expression returning the score.   |
+| Sort cannot find`weighted_total`                   | Connect`Calculate Weighted Score` directly to `Rank Vendors` and keep other input fields enabled. |
+| Priority package displays`[object Object]`         | Map its individual properties in the HTML or use`JSON.stringify(...)` for a plain-text email.       |
+| Ranked-vendor section is blank                       | Gmail must follow`Collect Ranked Vendors`; map `$json.ranked_vendors` from that input.            |
 
 ## 20. Optional agent-tool or memory extension
 
@@ -717,6 +729,12 @@ Do not add this before the stable workflow has passed its end-to-end test.
 - Memory is most useful for a multi-turn chat. This workflow is a single execution with explicit context passed between nodes, so memory is not required and may mix data between vendor evaluations if configured incorrectly.
 
 For a later experiment, duplicate the Vendor Evaluation Agent on a separate test branch and connect a read-only lookup or controlled write tool supported by your n8n version. Test with one fictional vendor and inspect the tool-call trace. Keep this experiment disconnected from scoring, ranking, and email until it reliably terminates.
+
+### Optional: Import the reference workflow
+
+![1791323410059](image/README/1791323410059.png)
+
+You may also import the provided n8n workflow file into your workspace as a reference. This lets you open individual nodes, inspect their settings, prompts, expressions, mappings, and connections while following this guide. Use the imported workflow for learning and comparison; you must still configure your own credentials, Data Tables, email address, and model access before executing it.
 
 ## References
 
