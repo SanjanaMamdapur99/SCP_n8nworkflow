@@ -1,0 +1,1120 @@
+{
+  "name": "​ACME Smart Shuttle - AIoT Sourcing MAS",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "​Sourcing Brief Form",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Project name"
+            },
+            {
+              "fieldLabel": "Business objective",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Strategic differentiators",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Internal strengths",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Internal capability gaps",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Required launch horizon"
+            },
+            {
+              "fieldLabel": "Need for control",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Low"
+                  },
+                  {
+                    "option": "Medium"
+                  },
+                  {
+                    "option": "High"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Budget approach",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Deployment scope",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Regulatory and risk concerns",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Reviewer email",
+              "fieldType": "email"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5e92162-4216-448f-9a80-3f0089397f15",
+      "name": "​Sourcing Brief Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "7084db39-c43c-44e4-9dff-34e8af489d05"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "465cd518-b015-4d7f-a3bd-e7ea64d72106",
+              "name": "project_name",
+              "value": "={{ $json['Project name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9e39ea46-9b7c-44ee-8359-88e2fd535ac9",
+              "name": "business_objective",
+              "value": "={{ $json['Business objective'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8b7b67f0-2b86-4c37-afe0-35d7552a2888",
+              "name": "strategic_differentiators",
+              "value": "={{ $json['Strategic differentiators'] }}",
+              "type": "string"
+            },
+            {
+              "id": "434a4d00-2497-4014-91a9-720ac8abc26b",
+              "name": "internal_strengths",
+              "value": "={{ $json['Internal strengths'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d2278dcd-4b2e-4128-9a8a-6e94ed23550b",
+              "name": "internal_capability_gaps",
+              "value": "={{ $json['Internal capability gaps'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d5fb1485-19ab-435c-ae62-f9bbdd034240",
+              "name": "required_launch_horizon",
+              "value": "={{ $json['Required launch horizon'] }}",
+              "type": "string"
+            },
+            {
+              "id": "43735028-c056-429c-b780-86aefc57fab0",
+              "name": "need_for_control",
+              "value": "={{ $json['Need for control'] }}",
+              "type": "string"
+            },
+            {
+              "id": "c6db2cc4-17a5-42be-bd7f-e3f55b653069",
+              "name": "budget_approach",
+              "value": "={{ $json['Budget approach'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1510b0a6-baaa-474f-8bfe-43919e8dacc9",
+              "name": "deployment_scope",
+              "value": "={{ $json['Deployment scope'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7021c72e-cc06-4418-91c6-7531d73b693f",
+              "name": "regulatory_and_risk_concerns",
+              "value": "={{ $json['Regulatory and risk concerns'] }}",
+              "type": "string"
+            },
+            {
+              "id": "75fbbb0c-274f-497d-bcda-356d2f00e332",
+              "name": "reviewer_email",
+              "value": "={{ $json['Reviewer email'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f87d0cd3-f4d7-4c52-befd-19ad500da324",
+              "name": "​use_case_name",
+              "value": "ACME Smart Shuttle",
+              "type": "string"
+            },
+            {
+              "id": "06cbf3db-287f-4030-9ac3-4d8c7a426db1",
+              "name": "decision_status",
+              "value": "Draft for internal review",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c3b18e1-4ba3-4f0b-9dbd-f42a9a09da19",
+      "name": "Normalize Brief",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "6jAC3pmAjKLvMVt8",
+          "mode": "list",
+          "cachedResultName": "ACME Architecture Components",
+          "cachedResultUrl": "/projects/KwmUsGWExUZt7jr4/datatables/6jAC3pmAjKLvMVt8"
+        },
+        "returnAll": true
+      },
+      "id": "e16c73f1-db11-4da9-ba0b-669a5221dd7f",
+      "name": "Get Architecture Components",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        432,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "architecture_components",
+        "include": "specifiedFields",
+        "fieldsToInclude": "component, role",
+        "options": {}
+      },
+      "id": "551a1162-ad57-4257-802f-32e7d1f76944",
+      "name": "Collect Architecture Components",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        656,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "f9706dff-7f32-436b-9cc3-4a07ff2ab5bf",
+      "name": "Merge Brief and Architecture",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        832,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are evaluating the sourcing strategy for the ACME Smart Shuttle AIoT solution.\n\nUse the sourcing brief and architecture components provided below.\n\nSOURCING BRIEF\n\nProject name:\n{{ $json.project_name }}\n\nBusiness objective:\n{{ $json.business_objective }}\n\nStrategic differentiators:\n{{ $json.strategic_differentiators }}\n\nInternal strengths:\n{{ $json.internal_strengths }}\n\nInternal capability gaps:\n{{ $json.internal_capability_gaps }}\n\nRequired launch horizon:\n{{ $json.required_launch_horizon }}\n\nNeed for control:\n{{ $json.need_for_control }}\n\nBudget approach:\n{{ $json.budget_approach }}\n\nDeployment scope:\n{{ $json.deployment_scope }}\n\nRegulatory and risk concerns:\n{{ $json.regulatory_and_risk_concerns }}\n\nUse case: \n{{ $json['​use_case_name'] }}\n\n\nDecision status:\n{{ $json.decision_status }}\n\nARCHITECTURE COMPONENTS\n\n{{ JSON.stringify($json.architecture_components, null, 2) }}\nEvaluate every architecture component in the supplied list.\n\nFor each component, recommend exactly one of these sourcing modes:\n\n- Make\n- Buy\n- Partner\n- Build-Operate-Transfer\n\nReturn the result using the required structured output format. Do not omit any architecture component.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are ACME Smart Shuttle’s AIoT sourcing-strategy specialist.\n\nUse only the sourcing brief and the architecture-component list provided in the user message. Evaluate every listed component separately. Return exactly one decision for each component, using its component name exactly as supplied.\n\nChoose exactly one sourcing mode per component:\n\n- Make: ACME primarily designs, develops, owns, and operates the component.\n- Buy: ACME purchases or subscribes to a standard product or service.\n- Partner: ACME and an external organization jointly develop or operate the component.\n- Build-Operate-Transfer: A supplier initially builds and operates the capability, then transfers agreed knowledge, assets, and operating responsibility to ACME.\n\nBase each decision on strategic importance, ACME’s stated capabilities and gaps, delivery timing, desired control, long-term operation, dependencies, and lock-in risk.\n\nStay consistent with the supplied ACME case: shuttle routing AI, ETA forecasting AI, and driver shift planning AI are strategically important. ACME wants long-term control of them but lacks sufficient AI staffing capability now. Build-Operate-Transfer is therefore a strong candidate for all three. If you recommend a different mode, explain why using the supplied information.\n\nKeep each component aligned with its stated role. The Onboard edge unit is for vehicle tracking and local processing. In-vehicle monitoring is for safety and event detection. Do not transfer features or evidence from one component to another.\n\nEvidence rules:\n\n- Do not invent facts about ACME, suppliers, markets, technologies, budgets, or legal requirements.\n- Do not name a law, regulation, standard, certification, product, or jurisdiction unless it appears in the supplied input.\n- Do not claim that a supplier or commercial service meets a requirement when no evidence has been supplied.\n- An assumption must describe something to confirm; it must not state an unknown condition as fact.\n- Put important unknowns in strategy_assumptions or management_questions.\n\nReturn only these fields, exactly as required by the attached Structured Output Parser:\n\n- strategy_summary: a concise overall summary.\n- component_decisions: exactly one object for each supplied architecture component. Each object must contain component_name, strategic_importance (Low, Medium, or High), recommended_mode (Make, Buy, Partner, or Build-Operate-Transfer), and rationale.\n- strategy_assumptions: a list of concise statements requiring confirmation.\n- management_questions: a list of questions for ACME management.\n\nKeep each rationale to no more than two sentences. Do not add fields that are absent from the parser. Return structured output only, without Markdown or introductory text."
+        }
+      },
+      "id": "84f110a3-7872-4ed6-ae19-047fc0944e6c",
+      "name": "Sourcing Strategy Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1056,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create the AIoT Sourcing BOM for the ACME Smart Shuttle use case.\n\nSOURCING BRIEF\n\nProject name:\n{{ $('Normalize Brief').item.json.project_name }}\nBusiness objective:\n{{ $('Normalize Brief').item.json.business_objective }}\n\n\nStrategic differentiators:\n{{ $('Normalize Brief').item.json.strategic_differentiators }}\n\nInternal strengths:\n{{ $('Normalize Brief').item.json.internal_strengths }}\n\n\nInternal capability gaps:{{ $('Normalize Brief').item.json.internal_capability_gaps }}\n\nRequired launch horizon:\n{{ $('Normalize Brief').item.json.required_launch_horizon }}\n\nNeed for control:\n{{ $('Normalize Brief').item.json.need_for_control }}\n\n\nDeployment scope:\n{{ $('Normalize Brief').item.json.deployment_scope }}\n\nRegulatory and risk concerns:\n{{ $('Normalize Brief').item.json.regulatory_and_risk_concerns }}\n\nARCHITECTURE COMPONENTS\n{{ JSON.stringify($('Collect Architecture Components').item.json.architecture_components, null, 2) }}\n\nAPPROVED SOURCING STRATEGY\n\nStrategy summary:\n{{ $json.output.strategy_summary }}\n\nComponent decisions:\n{{ JSON.stringify($json.output.component_decisions, null, 2) }}\n\n\nStrategy assumptions:\n{{ JSON.stringify($json.output.strategy_assumptions, null, 2) }}\n\nManagement questions:\n{{ JSON.stringify($json.output.management_questions, null, 2) }}\n\nCreate exactly 12 BOM items—one for each architecture component. Keep each item concise. Use the strategy's sourcing mode unchanged. Identify the main dependencies and open questions, and define the priority package for routing, ETA forecasting, and driver shift planning.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are ACME Smart Shuttle’s AIoT Sourcing BOM specialist.\n\nCreate a representative Sourcing Bill of Materials from the supplied architecture, sourcing brief, and approved component decisions.\n\nProduce exactly one BOM item for each of the 12 architecture components. Use each component name exactly as supplied. Preserve its recommended sourcing mode exactly as stated in the sourcing strategy.\n\nFor each item, provide its purpose, pilot sizing, scale-up sizing, main dependency, and evidence needed to accept delivery. Use 25 shuttles for the pilot and up to 250 for scale-up. For services and software, describe the sizing basis rather than inventing exact user counts, staffing numbers, or costs.\n\nIdentify the most important dependencies and open questions for the nine-month pilot and 15-month production rollout. Include the routing, ETA forecasting, and driver shift planning capabilities in one recommended Build-Operate-Transfer sourcing package.\n\nUse only supplied information. Treat unconfirmed quantities, supplier capabilities, and delivery dates as questions, not facts. Do not change the sourcing strategy silently.\n\nReturn only the fields required by the Structured Output Parser. Keep each field concise. Produce the final answer directly; no reflection or tool calls are required."
+        }
+      },
+      "id": "4b3fbd07-8576-4f09-b3f0-71de3e78029e",
+      "name": "​AIoT Sourcing BOM Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1424,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"strategy_summary\": \"Short overall strategy summary.\",\n  \"component_decisions\": [\n    {\n      \"component_name\": \"Shuttle routing AI\",\n      \"strategic_importance\": \"High\",\n      \"recommended_mode\": \"Build-Operate-Transfer\",\n      \"rationale\": \"Strategically important, but ACME currently lacks sufficient internal AI capability.\"\n    }\n  ],\n  \"strategy_assumptions\": [\n    \"The pilot covers 25 shuttles.\"\n  ],\n  \"management_questions\": [\n    \"Which assets must be transferred to ACME?\"\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1232,
+        144
+      ],
+      "id": "7235b823-7d55-4efc-8371-f7554ecd0a2e",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"bom_summary\": \"Representative sourcing BOM for a 25-shuttle pilot and potential 250-shuttle rollout.\",\n  \"bom_items\": [\n    {\n      \"component_name\": \"Shuttle routing AI\",\n      \"purpose\": \"Optimizes pickup order and routes.\",\n      \"sourcing_mode\": \"Build-Operate-Transfer\",\n      \"pilot_sizing\": \"Routing capability for 25 shuttles.\",\n      \"scale_sizing\": \"Capacity for up to 250 shuttles; detailed transaction volume to be confirmed.\",\n      \"main_dependency\": \"Booking and virtual-stop service and vehicle-location data.\",\n      \"acceptance_evidence\": \"Demonstrated routing results, documented interfaces, and an agreed transfer plan.\"\n    }\n  ],\n  \"critical_dependencies\": [\n    \"Routing and ETA forecasting require booking and vehicle-location data.\"\n  ],\n  \"open_questions\": [\n    \"What service capacity and staffing are needed for the pilot?\"\n  ],\n  \"priority_package\": {\n    \"package_name\": \"Strategic AI Mobility Services\",\n    \"included_components\": [\n      \"Shuttle routing AI\",\n      \"ETA forecasting AI\",\n      \"Driver shift planning AI\"\n    ],\n    \"sourcing_mode\": \"Build-Operate-Transfer\"\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1568,
+        96
+      ],
+      "id": "dff7cbb3-b84c-49bc-9868-7595ab0921a0",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7968d26f-953e-4f65-be2f-27ac45f176c6",
+              "name": "​package_name",
+              "value": "Strategic AI Mobility Services",
+              "type": "string"
+            },
+            {
+              "id": "c919e27c-724d-4a14-81e6-6964afbd27a1",
+              "name": "included_capabilities",
+              "value": "Shuttle routing AI; ETA forecasting AI; Driver shift planning AI",
+              "type": "string"
+            },
+            {
+              "id": "0179066c-0aa4-4cfb-9336-e3c73045eb18",
+              "name": "preferred_sourcing_mode",
+              "value": "Build-Operate-Transfer",
+              "type": "string"
+            },
+            {
+              "id": "584a0c48-2d40-41e0-af5e-27443b227790",
+              "name": "​pilot_deadline",
+              "value": "Nine months from project start",
+              "type": "string"
+            },
+            {
+              "id": "f485703d-718f-4209-a39d-4d24f681a436",
+              "name": "​production_deadline​",
+              "value": "Fifteen months from project start",
+              "type": "string"
+            },
+            {
+              "id": "d16d5b43-9456-45db-b649-b53c93404709",
+              "name": "​package_reason​",
+              "value": "Strategic AI capabilities require long-term ACME control, while ACME lacks immediate AI staffing capacity.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1760,
+        -80
+      ],
+      "id": "a16b7e8b-458b-4108-aaf5-134ee3d87986",
+      "name": "​Select Priority Package"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create the internal RFP draft for the ACME Smart Shuttle priority package.\n\nBRIEF\n{{ JSON.stringify($('Normalize Brief').first().json, null, 2) }}\n\nSTRATEGY\n{{ JSON.stringify($('Sourcing Strategy Agent').first().json.output, null, 2) }}\n\nSOURCING BOM\n{{ JSON.stringify($('​AIoT Sourcing BOM Agent').item.json.output, null, 2) }}\n\nSELECTED PACKAGE\nPackage: {{ $json['​package_name'] }}\nCapabilities: {{ $json.included_capabilities }}\nMode: {{ $json.preferred_sourcing_mode }}\nPilot: {{ $json['​pilot_deadline'] }}\nProduction: {{ $json['​production_deadline​'] }}\nUse exactly these criterion weights: functional and AI capability 25; integration 15; delivery 15; model operations and SLAs 15; security and privacy 10; knowledge transfer and lock-in 10; commercial fit 10. Their total is 100.\n\nMandatory conditions: pilot within nine months; all three capabilities addressed; documented interfaces; security and privacy approach; model monitoring and retraining approach; knowledge-transfer and exit plan; evidence and references.",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You draft an internal RFP for ACME Smart Shuttle's Strategic AI Mobility Services package. Use only the supplied brief, strategy, BOM, and package definition. Do not invent approved legal terms, supplier facts, budget ceilings, certifications, or SLA numbers.  Cover routing, ETA forecasting, driver shift planning, integration, security and privacy approach, model monitoring and retraining, delivery milestones, knowledge transfer, supplier evidence, commercial response, and open questions.  Mark proposed SLA targets for human confirmation. This is an internal draft, not an issued RFP. Follow the Structured Output Parser exactly and keep every field concise."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1984,
+        -80
+      ],
+      "id": "4f29fd9e-324c-4e5a-a0f1-33e23ef93625",
+      "name": "RFP Draft Chain"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"rfp_title\": \"ACME Smart Shuttle — Strategic AI Mobility Services\",\n  \"status\": \"Internal draft for human review\",\n  \"project_overview\": \"On-demand school shuttle service with virtual stops, vehicle data, and optimized planning.\",\n  \"scope_of_work\": [\"Develop routing, ETA, and driver planning and prepare transfer to ACME.\"],\n  \"functional_requirements\": [\"Describe and demonstrate dynamic routing for the pilot.\"],\n  \"nonfunctional_requirements\": [\"Propose measurable availability, security, privacy, and recovery commitments for ACME review.\"],\n  \"integration_requirements\": [\"Document booking, vehicle-location, route, ETA, and schedule interfaces.\"],\n  \"model_operations_requirements\": [\"Describe monitoring, drift review, retraining, versioning, and rollback.\"],\n  \"knowledge_transfer_requirements\": [\"Specify documentation, assets, training, operating procedures, and exit support.\"],\n  \"delivery_milestones\": [\"Pilot readiness within nine months; production readiness within fifteen months.\"],\n  \"mandatory_conditions\": [\"Credible pilot plan within nine months; all three capabilities; interfaces; security and privacy; model operations; transfer plan; evidence and references.\"],\n  \"evaluation_weights\": {\n    \"functional_ai\": 25,\n    \"integration\": 15,\n    \"delivery\": 15,\n    \"model_operations\": 15,\n    \"security_privacy\": 10,\n    \"knowledge_transfer\": 10,\n    \"commercial\": 10\n  },\n  \"commercial_response_requested\": [\"Pilot, production, recurring operations, scale, and exit costs.\"],\n  \"supplier_questions\": [\"Which model assets and operating materials can transfer to ACME?\"],\n  \"internal_approval_questions\": [\"Which SLA targets should ACME approve before issuing an RFP?\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2128,
+        112
+      ],
+      "id": "189fba0e-6308-4f3a-ab68-a4eda1a40abe",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Jpe28evh7FZ0HyB5",
+          "mode": "list",
+          "cachedResultName": "ACME Vendor Proposals",
+          "cachedResultUrl": "/projects/KwmUsGWExUZt7jr4/datatables/Jpe28evh7FZ0HyB5"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2304,
+        -80
+      ],
+      "id": "87ecab15-171b-4d6c-b692-e574015d4afc",
+      "name": "Load Vendor Proposals"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "bc3bad17-d921-4612-a722-10953f53c8ab",
+              "leftValue": "={{ $json.pilot_months }}",
+              "rightValue": 9,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            },
+            {
+              "id": "ae73683f-05e2-4f79-940e-c013d6a636d0",
+              "leftValue": "={{ $json.routing_capability }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77fdccbb-7fa9-45f3-9399-5716c8920f7d",
+              "leftValue": "={{ $json.eta_capability }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4588ea5c-66b6-4726-9441-65b9b76667cf",
+              "leftValue": "={{ $json.shift_planning_capability }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "7f5fc2ce-bcbf-45aa-a870-dcaecb9dcea4",
+              "leftValue": "={{ $json.integration_approach }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "d8d09abb-d216-4f96-af96-7068fdb9d62e",
+              "leftValue": "={{ $json.security_evidence }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "0b0ab8c2-29ab-4283-bfb5-3eb1f3589440",
+              "leftValue": "={{ $json.model_operations }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b33843c8-a7bc-4c95-a8f9-3d68fc7e5603",
+              "leftValue": "={{ $json.knowledge_transfer }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "cea66786-409d-4f97-86a0-73738a2d66e9",
+              "leftValue": "={{ $json.customer_references }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2528,
+        -80
+      ],
+      "id": "af38355c-92cf-4b6b-8134-07262008269a",
+      "name": "​Mandatory Eligibility"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "82608bbc-3c36-432e-b160-4de0eed4f667",
+              "name": "​eligibility_status",
+              "value": "Ineligible",
+              "type": "string"
+            },
+            {
+              "id": "0331fbe7-1c2f-4856-8c8c-5e648807e2ae",
+              "name": "​eligibility_reason",
+              "value": "Pilot deadline or required proposal field failed the mandatory gate",
+              "type": "string"
+            },
+            {
+              "id": "a40a4b4c-48c4-4a1a-b835-f9d04f665976",
+              "name": "vendor_id",
+              "value": "={{ $json.vendor_id }}",
+              "type": "string"
+            },
+            {
+              "id": "7a5f7888-9def-4016-8278-081b0cb2db3e",
+              "name": "vendor_name",
+              "value": "={{ $json.vendor_name }}",
+              "type": "string"
+            },
+            {
+              "id": "2487e123-f6c4-440a-afb7-c4d8f75bedd5",
+              "name": "delivery_model",
+              "value": "={{ $json.delivery_model }}",
+              "type": "string"
+            },
+            {
+              "id": "f96c1f40-b7b9-45af-8ba9-ee498c991784",
+              "name": "routing_capability",
+              "value": "={{ $json.routing_capability }}",
+              "type": "string"
+            },
+            {
+              "id": "17f34626-096d-49f1-b001-1767ccbd11c0",
+              "name": "eta_capability",
+              "value": "={{ $json.eta_capability }}",
+              "type": "string"
+            },
+            {
+              "id": "219386e7-6aaa-4680-bc5f-4653710fc702",
+              "name": "shift_planning_capability",
+              "value": "={{ $json.shift_planning_capability }}",
+              "type": "string"
+            },
+            {
+              "id": "20e08e55-d1e8-452c-803c-3572f7b912d7",
+              "name": "integration_approach",
+              "value": "={{ $json.integration_approach }}",
+              "type": "string"
+            },
+            {
+              "id": "cfac0dae-6235-4db5-9d4f-e8dfb0192ae5",
+              "name": "security_evidence",
+              "value": "={{ $json.security_evidence }}",
+              "type": "string"
+            },
+            {
+              "id": "b472709a-6b39-4182-9b9e-4d0857cb157f",
+              "name": "model_operations",
+              "value": "={{ $json.model_operations }}",
+              "type": "string"
+            },
+            {
+              "id": "b4e9c7b0-7b74-4a67-86d2-abee8bd29c7c",
+              "name": "knowledge_transfer",
+              "value": "={{ $json.knowledge_transfer }}",
+              "type": "string"
+            },
+            {
+              "id": "16eae477-f396-4d3f-9f73-e50f00690725",
+              "name": "customer_references",
+              "value": "={{ $json.customer_references }}",
+              "type": "string"
+            },
+            {
+              "id": "95610dfc-e19e-42ab-820d-4c5690f45715",
+              "name": "risks_and_exclusions",
+              "value": "={{ $json.risks_and_exclusions }}",
+              "type": "string"
+            },
+            {
+              "id": "6e939dd2-22db-4dd9-8919-4c6a3570e476",
+              "name": "pilot_months",
+              "value": "={{ $json.pilot_months }}",
+              "type": "number"
+            },
+            {
+              "id": "0137ff0a-c27c-45ee-9094-b535069fc092",
+              "name": "production_months",
+              "value": "={{ $json.production_months }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2768,
+        128
+      ],
+      "id": "b20898c2-3c1c-4fb8-938b-23a1439bdbba",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Evaluate this one eligible vendor proposal.\n\nVENDOR\n{{ JSON.stringify($json, null, 2) }}\n\nRFP\n{{ JSON.stringify($('RFP Draft Chain').first().json.output, null, 2) }}\n\nPreferred sourcing mode: Build-Operate-Transfer. Pilot deadline: nine months. Score all seven criteria from 1 to 5. Keep reasons concise. Identify knowledge-transfer and lock-in concerns.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You evaluate one fictional vendor proposal at a time for ACME Smart Shuttle. Use only the current proposal and the internal RFP supplied in the user message. Treat vendor claims as unverified claims. State missing evidence and material risks. Do not infer capabilities from a company name.\n\nScore each of seven criteria from 1 to 5: 1 means no usable evidence or major failure; 2 means major gaps; 3 means acceptable with material questions; 4 means strong with minor gaps; 5 means specific and well supported.\n\nCriteria and weights are: functional AI 25, integration 15, delivery 15, model operations 15, security/privacy 10, knowledge transfer 10, commercial fit 10. Use the Calculator Tool once if needed to check the provisional weighted total. After a tool result, give the final evaluation; do not call the same tool repeatedly.\n\nProvide seven named numeric score fields and short reasons, plus risks and questions. The workflow will calculate the authoritative weighted score independently. Follow the Structured Output Parser exactly."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2752,
+        -272
+      ],
+      "id": "3c42adba-0bf7-48c8-9a05-aa2fb9853309",
+      "name": "Vendor Evaluation Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"vendor_id\": \"VEND-001\",\n  \"vendor_name\": \"RouteWorks Labs\",\n  \"functional_ai_score\": 4,\n  \"integration_score\": 4,\n  \"delivery_score\": 4,\n  \"model_operations_score\": 4,\n  \"security_privacy_score\": 3,\n  \"knowledge_transfer_score\": 5,\n  \"commercial_score\": 3,\n  \"score_reasons\": [\"Functional AI: strong routing and ETA claims, with shift-planning integration to clarify.\"],\n  \"strengths\": [\"Detailed transfer proposal.\"],\n  \"risks\": [\"High cost and dependence on data quality.\"],\n  \"clarification_questions\": [\"Which code, model assets, and operating materials transfer to ACME?\"],\n  \"recommended_next_step\": \"Invite to presentation\",\n  \"provisional_weighted_total\": 78\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2896,
+        -64
+      ],
+      "id": "7a409076-8013-4b7d-9fb4-659b6772fe54",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "308aba6a-a414-4f5f-84df-f7e0a346f824",
+              "name": "weighted_total",
+              "value": "={{ Math.round((   Number($json.output.functional_ai_score) * 25 +   Number($json.output.integration_score) * 15 +   Number($json.output.delivery_score) * 15 +   Number($json.output.model_operations_score) * 15 +   Number($json.output.security_privacy_score) * 10 +   Number($json.output.knowledge_transfer_score) * 10 +   Number($json.output.commercial_score) * 10 ) / 5 * 10) / 10 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        3120,
+        -272
+      ],
+      "id": "f126c092-5124-45ed-8155-96905ff74ebc",
+      "name": "​Calculate Weighted Score"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "=weighted_total",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        3456,
+        -48
+      ],
+      "id": "3ae39a65-1f6d-438a-b748-f90f0dad94ee",
+      "name": "​Rank Vendors"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "​ranked_vendors",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3696,
+        -272
+      ],
+      "id": "07207b10-faac-4cca-86f1-ed6dcaffd3cb",
+      "name": "Collect Ranked Vendors"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Normalize Brief').item.json.reviewer_email }}",
+        "subject": "ACME Smart Shuttle — sourcing recommendation for review",
+        "message": "=<div style=\"font-family:Arial,sans-serif;max-width:760px;margin:auto;color:#243047;line-height:1.5\">\n  <div style=\"background:#17365d;color:white;padding:24px;border-radius:8px 8px 0 0\">\n    <h1 style=\"margin:0;font-size:22px\">ACME Smart Shuttle</h1>\n    <p style=\"margin:6px 0 0\">Sourcing decision pack · Draft for human review</p>\n  </div>\n\n  <div style=\"border:1px solid #dce3eb;padding:24px\">\n    <h2 style=\"color:#17365d\">Sourcing strategy</h2>\n    <p>{{ $('Sourcing Strategy Agent').first().json.output.strategy_summary }}</p>\n\n    <h2 style=\"color:#17365d\">Priority sourcing package</h2>\n    <p><strong>{{ $('​AIoT Sourcing BOM Agent').item.json.output.priority_package.package_name }}</strong></p>\n    <p>Mode: {{ $('​AIoT Sourcing BOM Agent').item.json.output.priority_package.sourcing_mode }}<br>\n    Components: {{ $('​AIoT Sourcing BOM Agent').item.json.output.priority_package.included_components.join(', ') }}</p>\n\n    <h2 style=\"color:#17365d\">RFP draft</h2>\n    <p><strong>{{ $('RFP Draft Chain').first().json.output.rfp_title }}</strong></p>\n    <h3>Scope</h3>\n    <ul>\n      {{ $('RFP Draft Chain').first().json.output.scope_of_work.map(x => '<li>' + x + '</li>').join('') }}\n    </ul>\n\n    <h3>Open approvals</h3>\n    <ul>\n      {{ $('RFP Draft Chain').first().json.output.internal_approval_questions.map(x => '<li>' + x + '</li>').join('') }}\n    </ul>\n\n    <h2 style=\"color:#17365d\">Ranked eligible vendors</h2>\n    {{ $json['​ranked_vendors'].map((v, i) => '<div style=\"background:#f3f6fa;padding:14px;margin:10px 0;border-left:4px solid #3174b9\"><strong>#' + (i + 1) + ' ' + v.output.vendor_name + '</strong><br>Weighted score: <strong>' + v.weighted_total + '</strong><br>Next step: ' + v.output.recommended_next_step + '</div>').join('') }}\n\n    <p style=\"font-size:13px;color:#5b6472\"><strong>Eligibility note:</strong> VisionTransit Partners was excluded because its 11-month proposed pilot exceeds the 9-month target.</p>\n\n    <div style=\"background:#eaf2fb;padding:16px;margin-top:24px\">\n      <strong>Review requested</strong>\n      <p style=\"margin-bottom:0\">Please reply with your decision and comments. This draft does not authorize a supplier award, contract, or external supplier contact.</p>\n    </div>\n  </div>\n</div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        3920,
+        -272
+      ],
+      "id": "11580924-14e5-4127-83da-f1df934dfe84",
+      "name": "Email Sourcing Decision Pack",
+      "webhookId": "486e8550-5ef9-43e6-99c1-6e527b219418",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "h4lPHZ5DB1Mwmjth",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1056,
+        112
+      ],
+      "id": "02f6ef5e-be21-4148-abc3-64a11916d388",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "UIXH51O56pASiK1m",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1408,
+        112
+      ],
+      "id": "9b8c02ab-522e-41bc-a2d0-c958f71b3e60",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "UIXH51O56pASiK1m",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1984,
+        96
+      ],
+      "id": "fe6e7306-c1a9-478d-b786-d050a9ab4901",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "UIXH51O56pASiK1m",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        2736,
+        -64
+      ],
+      "id": "5414f2e9-5275-4e86-880b-28810396e744",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "UIXH51O56pASiK1m",
+          "name": "OpenAI account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "​Sourcing Brief Form": {
+      "main": [
+        [
+          {
+            "node": "Normalize Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Brief": {
+      "main": [
+        [
+          {
+            "node": "Get Architecture Components",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Brief and Architecture",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Architecture Components": {
+      "main": [
+        [
+          {
+            "node": "Collect Architecture Components",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect Architecture Components": {
+      "main": [
+        [
+          {
+            "node": "Merge Brief and Architecture",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Brief and Architecture": {
+      "main": [
+        [
+          {
+            "node": "Sourcing Strategy Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sourcing Strategy Agent": {
+      "main": [
+        [
+          {
+            "node": "​AIoT Sourcing BOM Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "​AIoT Sourcing BOM Agent": {
+      "main": [
+        [
+          {
+            "node": "​Select Priority Package",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Sourcing Strategy Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "​AIoT Sourcing BOM Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "​Select Priority Package": {
+      "main": [
+        [
+          {
+            "node": "RFP Draft Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RFP Draft Chain": {
+      "main": [
+        [
+          {
+            "node": "Load Vendor Proposals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "RFP Draft Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Vendor Proposals": {
+      "main": [
+        [
+          {
+            "node": "​Mandatory Eligibility",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "​Mandatory Eligibility": {
+      "main": [
+        [
+          {
+            "node": "Vendor Evaluation Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Vendor Evaluation Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vendor Evaluation Agent": {
+      "main": [
+        [
+          {
+            "node": "​Calculate Weighted Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "​Calculate Weighted Score": {
+      "main": [
+        [
+          {
+            "node": "​Rank Vendors",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "​Rank Vendors": {
+      "main": [
+        [
+          {
+            "node": "Collect Ranked Vendors",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect Ranked Vendors": {
+      "main": [
+        [
+          {
+            "node": "Email Sourcing Decision Pack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sourcing Strategy Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "​AIoT Sourcing BOM Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RFP Draft Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vendor Evaluation Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3ff9044a-51d1-4267-bfe9-b21924957fcd",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d0aa5bfc991786befab5c6cb5c316897d5a8a993c99241a51fe73791b5ce8c7d"
+  },
+  "nodeGroups": [],
+  "id": "1uVPe7cMDUmu0zdG",
+  "tags": []
+}
