@@ -1,14 +1,36 @@
-# ACME Smart Shuttle: n8n AIoT sourcing workflow
+# DTA05 - Smart, Connected Products: Day 04 AIoT Practice
 
-The plan follows the [Digital Playbook&#39;s AIoT sourcing process](https://www.digitalplaybook.org/index.php?title=Sourcing_and_Procurement) and its fictional ACME Smart Shuttle example.
+## Course context and practice objective
 
-## Use-case summary
+This repository supports the **Day 04 AIoT Practice** of the [DTA05 - Smart, Connected Products course](https://www.digitalplaybook.org/index.php?title=DTA05_-_Smart,_Connected_Products). Building on the **AIoT Business Idea developed during Day 01–03**, each team can create its own **AIoT Sourcing Agentic Workflow** in n8n. The aim is to connect the team's business idea and AIoT architecture with practical sourcing decisions, supplier evaluation, and a decision pack for human review.
+
+**ACME Smart Shuttle is a reference example, not a required use case.** Teams can apply the workflow to their own Light Commercial Vehicle, Bring-Your-Own-Device (BYOD), or other team-developed AIoT business idea. The walkthrough below follows the [Digital Playbook's AIoT sourcing process](https://www.digitalplaybook.org/index.php?title=Sourcing_and_Procurement) using the fictional shuttle scenario to illustrate the steps.
+
+### From your Day01–03 business idea to your own workflow
+
+1. **Start with your business idea:** describe the customer problem, intended value, users, and business objectives developed during Day 01–03.
+2. **Map your AIoT architecture:** identify the devices, connectivity, data, AI capabilities, platforms, and services your idea needs. Use these to create your own architecture Data Table.
+3. **Define your sourcing brief:** specify your priorities, internal capabilities, budget assumptions, delivery targets, and constraints. Justify which capabilities to Make, Buy, Partner, or source through Build-Operate-Transfer.
+4. **Adapt the workflow:** tailor the prompts, sourcing BOM, priority package, RFP, fictional supplier proposals, eligibility rules, and evaluation criteria to your business idea.
+5. **Run and explain the result:** demonstrate how the workflow turns your brief into a sourcing recommendation, inspect the outputs, and explain the decisions that still require human judgment.
+
+The shuttle-specific components, three priority AI capabilities, supplier names, timelines, and scoring weights below are sample inputs. Replace them where needed for your own case; Build-Operate-Transfer is an example decision, not a required outcome. If you change field names or output schemas, update the dependent prompts, expressions, parsers, and email template as well. Adapt the expected test results to your own component and supplier counts.
+
+### Presentation, documentation, and assessment
+
+For the practice presentation, show your business idea, explain how you adapted the reference workflow, demonstrate a working result, and discuss the sourcing recommendation and its limitations. Explain the origin of your input data and any assumptions used in the exercise.
+
+The course grading is split between **75% group results** (presentations and final Miro content) and **25% individual documentation**. Teams hand in their Miro presentation for instructor review. Each student submits a PDF documenting the three case presentations, with **at least one clearly highlighted personal focus area**, via SMT eCampus or email to the instructor.
+
+Case work is evaluated on creativity, structure and visualization, relevant and substantive content, persuasiveness, and presentation performance. For the hands-on practice, the emphasis is on the results presentation, use-case innovation and detail, data acquisition, and a working result. **Technical excellence is outside the assessment scope.**
+
+## Reference use case: ACME Smart Shuttle
 
 ACME Smart Shuttle is a fictional on-demand school shuttle service. Students request rides through a mobile app, a booking service assigns virtual pickup stops, and AI capabilities optimize routes, forecast arrival times, and plan driver shifts. Vehicle edge devices, connectivity, cloud services, integration, security, and operations complete the AIoT architecture.
 
 ACME considers routing, ETA forecasting, and driver shift planning strategically important and wants long-term control of them. However, it does not currently have enough AI staffing and model-operations capability to deliver them alone within the pilot timeline. The Digital Playbook therefore uses a **Build-Operate-Transfer** approach for these three capabilities: a supplier initially builds and operates them, while knowledge, assets, and operating responsibility are transferred to ACME over time.
 
-In this classroom exercise, students turn a business sourcing brief into:
+In this reference implementation, students turn a business sourcing brief into:
 
 - component-level Make, Buy, Partner, or Build-Operate-Transfer decisions;
 - an AIoT sourcing bill of materials;
@@ -738,6 +760,7 @@ You may also import the provided n8n workflow file into your workspace as a refe
 
 ## References
 
+- [Digital Playbook: DTA05 - Smart, Connected Products](https://www.digitalplaybook.org/index.php?title=DTA05_-_Smart,_Connected_Products)
 - [Digital Playbook: Sourcing and Procurement](https://www.digitalplaybook.org/index.php?title=Sourcing_and_Procurement)
 - [n8n Cloud free trial](https://docs.n8n.io/manage-cloud/cloud-free-trial/)
 - [Create an n8n workflow](https://docs.n8n.io/workflows/create/)
