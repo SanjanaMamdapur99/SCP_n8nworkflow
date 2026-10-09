@@ -16,11 +16,9 @@ This repository supports the **Day 04 AIoT Practice** of the [DTA05 - Smart, Con
 
 The shuttle-specific components, three priority AI capabilities, supplier names, timelines, and scoring weights below are sample inputs. Replace them where needed for your own case; Build-Operate-Transfer is an example decision, not a required outcome. If you change field names or output schemas, update the dependent prompts, expressions, parsers, and email template as well. Adapt the expected test results to your own component and supplier counts.
 
-### Presentation, documentation, and assessment
+### Presentation and assessment
 
 For the practice presentation, show your business idea, explain how you adapted the reference workflow, demonstrate a working result, and discuss the sourcing recommendation and its limitations. Explain the origin of your input data and any assumptions used in the exercise.
-
-The course grading is split between **75% group results** (presentations and final Miro content) and **25% individual documentation**. Teams hand in their Miro presentation for instructor review. Each student submits a PDF documenting the three case presentations, with **at least one clearly highlighted personal focus area**, via SMT eCampus or email to the instructor.
 
 Case work is evaluated on creativity, structure and visualization, relevant and substantive content, persuasiveness, and presentation performance. For the hands-on practice, the emphasis is on the results presentation, use-case innovation and detail, data acquisition, and a working result. **Technical excellence is outside the assessment scope.**
 
